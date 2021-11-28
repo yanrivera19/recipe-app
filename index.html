@@ -11,34 +11,41 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
+	<link href="http://fonts.cdnfonts.com/css/crestone" rel="stylesheet">
+
+<link href="http://fonts.cdnfonts.com/css/petrona" rel="stylesheet">
+
 	<link href="stylesheet.css" rel="stylesheet">
 
 	<title>Recipe App</title>
 </head>
 <body>
-	<div class="container">
-		<div>
-			<h1 id="pageTitle">Delicious Recipes</h1>
+	<div class="container ">
+		<div class="text-center pb-4">
+			<h1 class="pt-5" id="pageTitle">Delicious Recipes</h1>
 			<p id="description"></p>
+			<p>Want to check out another recipe? Click on the button below:</p>
+			<button id="newRecipeBtn" class="btn btn-success" onclick="getNewRecipes()">New Recipe</button>
 		</div>
-		<div>
-			<h3 id="mealName"></h3>
-			<div id="imgContainer"></div>
+		<div class="text-center pb-4">
+			<h2 class=" fs-1 fw-bold pb-3" id="mealName"></h2>
+			<div id="imgContainer" class="pb-4"></div>
 			<p id="videoGuide"></p>
-			<input type="button" id="linkBtn" class="btn btn-danger" value="YouTube" />
+			<input type="button" id="linkBtn" class="btn btn-danger btn-lg" value="Video" />
 		</div>
-		<div>
-			<h4>List of Ingredients:</h4>
-			<ul id="ingrList"></ul>
+		<div class="ingr-container pt-3 pb-4">
+			<h3 class="fw-bold text-center">Ingredients:</h3>
+			<div class="d-flex justify-content-center">
+				<ul id="ingrList"></ul>
+			</div>
 		</div>
-		<div>
-			<h4>Instructions:</h4>
+		<div class="">
+			<h3 class="fw-bold text-center">Instructions:</h3>
 			<ul id="instructions"></ul>
 		</div>
-		<div>
-			<p>Hope You Enjoy It!</p>
-			<p>Want to check out another recipe? Click on the button down below:</p>
-			<button id="newRecipeBtn" class="btn btn-primary" onclick="displayRecipe(recipe)">Click Me</button>
+		<div class="text-center fw-bold pt-2 pb-5">
+			<p class="fs-4">Hope You Enjoy It!</p>
+			
 		</div>
 	</div>
 
