@@ -24,11 +24,6 @@ h1 {
 	font-size: 50px;
 }
 
-/*.ing-container {
-	padding-right: 100px;
-	padding-left: 100px;
-}*/
-
 p {
 	font-size: 18px;
 }
@@ -42,7 +37,7 @@ p {
 #ingrList {
 	text-transform: capitalize;
 	font-size: 18px;
-	padding-left: 0;
+	padding-left: 0px;
 }
 
 .meal-img {
@@ -50,7 +45,7 @@ p {
 	margin-right: auto;
 	margin-left: auto;
 	width: 90%;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 @media only screen and (min-width: 768px) {

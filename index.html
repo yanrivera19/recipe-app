@@ -13,7 +13,7 @@
 
 	<link href="http://fonts.cdnfonts.com/css/crestone" rel="stylesheet">
 
-<link href="http://fonts.cdnfonts.com/css/petrona" rel="stylesheet">
+	<link href="http://fonts.cdnfonts.com/css/petrona" rel="stylesheet">
 
 	<link href="stylesheet.css" rel="stylesheet">
 
@@ -23,29 +23,40 @@
 	<div class="container ">
 		<div class="text-center pb-4">
 			<h1 class="pt-5" id="pageTitle">Delicious Recipes</h1>
+			
 			<p id="description"></p>
+			
 			<p>Want to check out another recipe? Click on the button below:</p>
-			<button id="newRecipeBtn" class="btn btn-success" onclick="getNewRecipes()">New Recipe</button>
+			
+			<button id="newRecipeBtn" class="btn btn-success" onclick="getRecipes()">New Recipe</button>
 		</div>
+
 		<div class="text-center pb-4">
 			<h2 class=" fs-1 fw-bold pb-3" id="mealName"></h2>
+			
 			<div id="imgContainer" class="pb-4"></div>
+			
 			<p id="videoGuide"></p>
+			
 			<input type="button" id="linkBtn" class="btn btn-danger btn-lg" value="Video" />
 		</div>
+
 		<div class="ingr-container pt-3 pb-4">
 			<h3 class="fw-bold text-center">Ingredients:</h3>
+			
 			<div class="d-flex justify-content-center">
 				<ul id="ingrList"></ul>
 			</div>
 		</div>
-		<div class="">
+		
+		<div>
 			<h3 class="fw-bold text-center">Instructions:</h3>
+			
 			<ul id="instructions"></ul>
 		</div>
+		
 		<div class="text-center fw-bold pt-2 pb-5">
-			<p class="fs-4">Hope You Enjoy It!</p>
-			
+			<p class="fs-4">Hope You Enjoy It!</p>		
 		</div>
 	</div>
 

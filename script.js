@@ -1,3 +1,22 @@
+/*
+Recipe App
+
+Step 1: Create a variable for each HTML elements on which the contents will be 
+displayed, and define them with the selection of each corresponding elements by their Id name.
+Step 2: Create an <img> element on which the image of the meal will be displayed. This <image> element
+will not be displayed for now.
+Step 3: Create a function called getRecipes that fetches the API using axios. If there are no errors, the response
+for the "get" request will call a function called displayRecipe. This function will take in as its parameter the "meals" array
+from the response data. This function will get executed on page load and everytime the "New Recipe" button at the top of the page
+gets clicked.
+Step 5: Create the function called displayRecipe that will take in a recipe as its parameter. This recipe refers to the "meals"
+array from the response data. This function will select the data that we need from the "meals" array for the content of the page 
+including the name of the meal, the image of the meal (that will be displayed in the <img> element we had previously created), 
+a YouTube video of the recipe that will be accessed by clicking a button, the list of ingredients, and the instructions.
+Everytime this function gets called, it will display on the page a new random recipe from the API with the data we selected.
+*/
+
+
 const mealName = document.getElementById("mealName");
 const images = document.getElementById("imgContainer");
 const videoGuide = document.getElementById("videoGuide");
@@ -7,12 +26,21 @@ const instructions = document.getElementById("instructions");
 const newRecipeBtn = document.getElementById("newRecipeBtn");
 
 const mealImg = document.createElement("img");
-mealImg.className = " meal-img";
+mealImg.className = "meal-img";
 mealImg.style.display = "none";
 
-function displayRecipe(recipe) {
-	console.log(recipe);
+function getRecipes() {
+	axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
+	    .then(response => {
+	        const recipe = response.data;
+	        displayRecipe(recipe.meals[0]);
+        })
+        .catch(error => console.error(error));
+};
 
+getRecipes();
+
+function displayRecipe(recipe) {
 	mealName.innerHTML = recipe.strMeal;
 
 	mealImg.style.display = "block";
@@ -21,49 +49,19 @@ function displayRecipe(recipe) {
 	
 	const recipeVid = recipe.strYoutube;
 	videoGuide.innerHTML = `Click on the button to watch how to make ${recipe.strMeal}:`
-	videoBtn.addEventListener("click", function() {window.open(recipeVid, 'new_window')});
+	videoBtn.addEventListener("click", function() {window.open(recipeVid, "new_window")});
 	
 	let arrayOfIngredients = [];
 	for(let i = 0; i < 20; i++) {		
-		console.log(recipe.strIngredient1);
 		const individualIngredients = recipe[`strIngredient${i}`];
 		const individualMeasures = recipe[`strMeasure${i}`];
 		if(individualIngredients) {
 			arrayOfIngredients.push(individualMeasures + " " + individualIngredients);
-			console.log(arrayOfIngredients);
 		};
 	}
-	ingredients.innerHTML = '<li>' + arrayOfIngredients.join("</li><li>"); + '</li>';
+	ingredients.innerHTML = "<li>" + arrayOfIngredients.join("</li><li>"); + "</li>";
 
 	instructions.innerHTML = recipe.strInstructions;
-};
-
-function getRecipes() {
-	axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
-	    .then(response => {
-	        console.log(response);
-	        const recipe = response.data;
-	        console.log(`GET list recipe`, recipe);
-	        displayRecipe(recipe.meals[0]);
-
-        })
-        .catch(error => console.error(error));
-};
-
-getRecipes();
-
-function getNewRecipes() {
-	axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
-	    .then(response => {
-	        console.log(response);
-	        const recipe = response.data;
-	        console.log(`GET list recipe`, recipe);
-	        mealImg.remove();
-	        ingredients.innerHTML = "";
-	        displayRecipe(recipe.meals[0]);	      
-        })
-          
-        .catch(error => console.error(error));
 };
 
 
