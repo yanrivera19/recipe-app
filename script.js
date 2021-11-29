@@ -1,19 +1,19 @@
 /*
 Recipe App
 
-Step 1: Create a variable for each HTML elements on which the contents will be 
-displayed, and define them with the selection of each corresponding elements by their Id name.
-Step 2: Create an <img> element on which the image of the meal will be displayed. This <image> element
+Step 1: Define several variable with the selection of each HTML elements by their Id name on which the contents will be 
+displayeded.
+Step 2: Create an <img> element on which the image of the meal will be displayed. This <img> element
 will not be displayed for now.
 Step 3: Create a function called getRecipes that fetches the API using axios. If there are no errors, the response
 for the "get" request will call a function called displayRecipe. This function will take in as its parameter the "meals" array
 from the response data. This function will get executed on page load and everytime the "New Recipe" button at the top of the page
 gets clicked.
 Step 5: Create the function called displayRecipe that will take in a recipe as its parameter. This recipe refers to the "meals"
-array from the response data. This function will select the data that we need from the "meals" array for the content of the page 
-including the name of the meal, the image of the meal (that will be displayed in the <img> element we had previously created), 
-a YouTube video of the recipe that will be accessed by clicking a button, the list of ingredients, and the instructions.
-Everytime this function gets called, it will display on the page a new random recipe from the API with the data we selected.
+array from the response data that we got in the previous function. This function will select the data that we need from the "meals" 
+array for the content of the page including the name of the meal, an image of the meal (that will be displayed in the <img> element that
+had been previously created), a YouTube video of the recipe that will be accessed by clicking a button, the list of ingredients, and the 
+instructions. Everytime this function gets called, it will display on the page a new random recipe from the API with the data we selected.
 */
 
 
@@ -53,8 +53,8 @@ function displayRecipe(recipe) {
 	
 	let arrayOfIngredients = [];
 	for(let i = 0; i < 20; i++) {		
-		const individualIngredients = recipe[`strIngredient${i}`];
-		const individualMeasures = recipe[`strMeasure${i}`];
+		const individualIngredients = recipe["strIngredient" + i];
+		const individualMeasures = recipe["strMeasure" + i];
 		if(individualIngredients) {
 			arrayOfIngredients.push(individualMeasures + " " + individualIngredients);
 		};
