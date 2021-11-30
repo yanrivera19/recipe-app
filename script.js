@@ -42,16 +42,26 @@ getRecipes();
 
 function displayRecipe(recipe) {
 	mealName.innerHTML = recipe.strMeal;
+	displayImage(recipe);
+	displayVideo(recipe);
+	displayIngrInstruc(recipe);	
+};
 
+const displayImage = recipe => {
 	mealImg.style.display = "block";
 	mealImg.src = recipe.strMealThumb;
 	images.appendChild(mealImg);
-	
+};
+
+const displayVideo = recipe => {
 	const recipeVid = recipe.strYoutube;
 	videoGuide.innerHTML = `Click on the button to watch how to make ${recipe.strMeal}:`
 	videoBtn.addEventListener("click", function() {window.open(recipeVid, "new_window")});
-	
+};
+
+const displayIngrInstruc = recipe => {
 	let arrayOfIngredients = [];
+
 	for(let i = 0; i < 20; i++) {		
 		const individualIngredients = recipe["strIngredient" + i];
 		const individualMeasures = recipe["strMeasure" + i];
@@ -63,7 +73,5 @@ function displayRecipe(recipe) {
 
 	instructions.innerHTML = recipe.strInstructions;
 };
-
-
 
 
