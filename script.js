@@ -10,10 +10,11 @@ for the "get" request will call a function called displayRecipe. This function w
 from the response data. This function will get executed on page load and everytime the "New Recipe" button at the top of the page
 gets clicked.
 Step 5: Create the function called displayRecipe that will take in a recipe as its parameter. This recipe refers to the "meals"
-array from the response data that we got in the previous function. This function will select the data that we need from the "meals" 
-array for the content of the page including the name of the meal, an image of the meal (that will be displayed in the <img> element that
-had been previously created), a YouTube video of the recipe that will be accessed by clicking a button, the list of ingredients, and the 
-instructions. Everytime this function gets called, it will display on the page a new random recipe from the API with the data we selected.
+array from the response data that we got in the previous function. This function will select the name of the meal property of the data and
+will call several funcitons called displayImage, displayVideo, and displayIngrInstruc. These will select other properties from the data, like 
+the image of the meal(that will be displayed in the <img> element that had been previously created), a YouTube video of the recipe that will be 
+accessed by clicking a button, the list of ingredients, and the instructions. Everytime all of these function get called, they will display on 
+the page a new random recipe from the API with the data we selected.
 */
 
 
