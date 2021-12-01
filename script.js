@@ -40,7 +40,7 @@ function getRecipes() {
         .catch(error => console.error(error));
 };
 
-getRecipes();
+window.onload = getRecipes();
 
 function displayRecipe(recipe) {
 	mealName.innerHTML = recipe.strMeal;
