@@ -13,8 +13,8 @@ Step 5: Create the function called displayRecipe that will take in a recipe as i
 array from the response data that we got in the previous function. This function will select the name of the meal property of the data and
 will call several funcitons called displayImage, displayVideo, and displayIngrInstruc. These will select other properties from the data, like 
 the image of the meal(that will be displayed in the <img> element that had been previously created), a YouTube video of the recipe that will be 
-accessed by clicking a button, the list of ingredients, and the instructions. Everytime all of these function get called, they will display on 
-the page a new random recipe from the API with the data we selected.
+accessed by clicking a button, the list of ingredients, and the instructions. Everytime all of these function get called, a new random recipe from 
+the API with the data we selected will displayed on the page.
 */
 
 
@@ -34,6 +34,7 @@ function getRecipes() {
 	axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
 	    .then(response => {
 	        const recipe = response.data;
+	        console.log(recipe);
 	        displayRecipe(recipe.meals[0]);
         })
         .catch(error => console.error(error));
@@ -63,7 +64,7 @@ const displayVideo = recipe => {
 const displayIngrInstruc = recipe => {
 	let arrayOfIngredients = [];
 
-	for(let i = 0; i < 20; i++) {		
+	for(let i = 0; i < 21; i++) {		
 		const individualIngredients = recipe["strIngredient" + i];
 		const individualMeasures = recipe["strMeasure" + i];
 		if(individualIngredients) {
