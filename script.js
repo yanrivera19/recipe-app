@@ -1,19 +1,19 @@
 /*
 Recipe App
 
-Step 1: Define several variable with the selection of each HTML elements by their Id name on which the contents will be 
+Step 1: Define several variables with the selection of each HTML elements by their Id name on which the contents will be 
 displayeded.
 Step 2: Create an <img> element on which the image of the meal will be displayed. This <img> element
 will not be displayed for now.
-Step 3: Create a function called getRecipes that fetches the API using axios. If there are no errors, the response
-for the "get" request will call a function called displayRecipe. This function will take in as its parameter the "meals" array
-from the response data. This function will get executed on page load and everytime the "New Recipe" button at the top of the page
-gets clicked.
+Step 3: Create a function called getRecipes that makes a "get" request to the API using axios library to get the resources that we want from it. 
+If there are no errors in the request, the response for the "get" request will call a function called displayRecipe. This function will take in as 
+its parameter the "meals" array from the response data. This meals array contains an object with all the data of the current random recipe. This function will 
+get executed on page load and everytime the "New Recipe" button at the top of the page gets clicked.
 Step 5: Create the function called displayRecipe that will take in a recipe as its parameter. This recipe refers to the "meals"
 array from the response data that we got in the previous function. This function will select the name of the meal property of the data and
-will call several funcitons called displayImage, displayVideo, and displayIngrInstruc. These will select other properties from the data, like 
-the image of the meal(that will be displayed in the <img> element that had been previously created), a YouTube video of the recipe that will be 
-accessed by clicking a button, the list of ingredients, and the instructions. Everytime all of these function get called, a new random recipe from 
+will call several functions called displayImage, displayVideo, and displayIngrInstruc. These will select other properties from the data, like 
+the image of the meal(that will be displayed in the <img> element that was previously created), a YouTube video of the recipe that will be 
+accessed on a new tab by clicking a button, the list of ingredients, and the instructions. Everytime all of these function get called, a new random recipe from 
 the API with the data we selected will displayed on the page.
 */
 
